@@ -147,7 +147,7 @@ let fosterPet = [
     passesNeeded: 4,
     rubricPoints: 1,
     attributes: ["alt||aria-labelledby"],
-    styles: [["backgroundColor", "rgb (200, 200, 200)"]],
+    styles: [],
     levelUp: true,
     levelUpFeedback: `Level Up Detected \n All <imgs> have alt or aria-labelledby for screen reader accessabilty`,
   },
@@ -790,8 +790,8 @@ function checkAttribute(iteration, element, rubric) {
     }
     if (HTMLelement[k].hasAttribute(rubric.attributes[j]) == false) {
       if (rubric.levelUp == false) {
+        return false;
       }
-      return false;
     }
   }
   return true;
