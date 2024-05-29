@@ -780,7 +780,7 @@ function checkAttribute(iteration, element, rubric) {
   HTMLelement = document.querySelectorAll(element);
   for (let j = 0; j < rubric.attributes.length; j++) {
     if (rubric.attributes[j].indexOf("||") !== -1) {
-      let attributes = attributes[j].split("||");
+      let attributes = rubric.attributes[j].split("||");
       for (let i = 0; i < attributes.length; i++) {
         if (HTMLelement[k].hasAttribute(attributes[i]) == true) {
           return true;
