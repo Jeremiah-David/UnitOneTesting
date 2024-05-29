@@ -147,7 +147,7 @@ let fosterPet = [
     passesNeeded: 4,
     rubricPoints: 1,
     attributes: ["alt||aria-labelledby"],
-    styles: [["backgroundColor", "rgb (200, 200, 200)"]],
+    styles: [],
     levelUp: true,
     levelUpFeedback: `Level Up Detected \n All <imgs> have alt or aria-labelledby for screen reader accessabilty`,
   },
@@ -780,9 +780,9 @@ function checkAttribute(iteration, element, rubric) {
   HTMLelement = document.querySelectorAll(element);
   for (let j = 0; j < rubric.attributes.length; j++) {
     if (rubric.attributes[j].indexOf("||") !== -1) {
-      rubric.attributes = rubric.attributes[j].split("||");
-      for (let i = 0; i < rubric.attributes.length; i++) {
-        if (HTMLelement[k].hasAttribute(rubric.attributes[i]) == true) {
+      let attributes = attributes[j].split("||");
+      for (let i = 0; i < attributes.length; i++) {
+        if (HTMLelement[k].hasAttribute(attributes[i]) == true) {
           return true;
         }
       }
@@ -790,8 +790,8 @@ function checkAttribute(iteration, element, rubric) {
     }
     if (HTMLelement[k].hasAttribute(rubric.attributes[j]) == false) {
       if (rubric.levelUp == false) {
+        return false;
       }
-      return false;
     }
   }
   return true;
